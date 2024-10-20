@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+@import 'global/variables.css';
+@import 'global/global-styles.css';
+
+@import 'blocks/input-group.css';
+@import 'blocks/prose.css';
+
+@import 'compositions/cluster.css';
+@import 'compositions/flow.css';
+@import 'compositions/grid.css';
+@import 'compositions/repel.css';
+@import 'compositions/sidebar.css';
+@import 'compositions/stack.css';
+@import 'compositions/switcher.css';
+@import 'compositions/wrapper.css';
+
+@import 'tailwindcss/utilities';

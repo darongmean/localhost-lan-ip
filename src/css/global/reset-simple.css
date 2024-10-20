@@ -1,0 +1,98 @@
+/* see https: //github.com/kevquirk/simple.css/blob/main/simple.css */
+
+/* customize font sizes */
+
+body,
+header>nav,
+aside {
+    font-size: var(--step-0);
+}
+
+h1 {
+    font-size: var(--step-5);
+}
+
+h2 {
+    font-size: var(--step-4);
+}
+
+h3 {
+    font-size: var(--step-3);
+}
+
+h4 {
+    font-size: var(--step-2);
+}
+
+h5 {
+    font-size: var(--step-1);
+}
+
+h6,
+body>footer,
+figcaption,
+cite {
+    font-size: var(--step--1);
+}
+
+/* reset spaces */
+
+body {
+    display: block;
+}
+
+body>header>:only-child {
+    margin-block-start: inherit;
+}
+
+body>header,
+body>footer,
+body>header h1,
+main,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+figcaption{
+    margin-block: 0;
+}
+
+/* customize spaces */
+
+body>header h1,
+body>footer,
+body>*+*,
+main {
+    /* .u-container */
+    max-width: var(--grid-max-width, 1200px);
+    padding-inline: var(--grid-gutter);
+    margin-inline: auto;
+}
+
+body>header>:only-child {
+    padding: var(--space-l, 2rem) 0;
+}
+
+body>footer,
+body>*+* {
+    /* .flow */
+    margin-top: var(--flow-space, var(--grid-gutter, 1em));
+}
+
+body>header p {
+    max-width: var(--p-max-width, 40rem);
+    margin: var(--space-m, 1rem) auto;
+}
+
+body>footer>:only-child {
+    margin: 0 auto;
+    padding: var(--space-xl, 1.5rem) 0;
+}

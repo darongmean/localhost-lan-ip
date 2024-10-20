@@ -1,31 +1,131 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hello, World!</title>
-	</head>
-	<body>
-		<h1 id="heading"></h1>
-		<button id="button">Fetch a random UUID</button>
-		<div id="random"></div>
-		<script>
-			fetch('/message')
-				.then((resp) => resp.text())
-				.then((text) => {
-					const h1 = document.getElementById('heading');
-					h1.textContent = text;
-				});
 
-			const button = document.getElementById("button");
-			button.addEventListener("click", () => {
-				fetch('/random')
-					.then((resp) => resp.text())
-					.then((text) => {
-						const random = document.getElementById('random');
-						random.textContent = text;
-					});
-			});
-		</script>
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="description"
+		content="Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP">
+	<title>Private IP & URL</title>
+	<script type="application/ld+json">
+	  {
+	    "@context": "https://schema.org",
+	    "@type": "WebPage",
+	    "name": "Private IP & URL",
+	    "description": "Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP"
+	  }
+	</script>
+	<meta property="og:title" content="Private IP & URL">
+	<meta property="og:description"
+		content="Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP">
+
+	<link rel="stylesheet" href="assets/css/simple-custom.css">
+	<link rel="stylesheet" href="assets/css/global.css">
+
+	<!-- Alpine Plugins -->
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+	<!-- Alpine Core -->
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+	<script src="assets/js/internalIp.js"></script>
+	<script src="assets/js/qrjs2.min.js"></script>
+	<script src="assets/js/client.js"></script>
+</head>
+
+<body>
+	<header class="border-b-0">
+		<h1>Private IP & URL</h1>
+	</header>
+
+	<main class="stack" x-data="thing">
+		<div>
+			<label>
+				URL, example: http://localhost:3000
+				<input x-model="original_url" type="text" name="original_url" class="text-xl" />
+			</label>
+			<label>
+				<input x-model="should_replace_hostname" type="checkbox" name="should_replace_hostname" />
+				Replace hostname with Private IP
+			</label>
+		</div>
+
+		<div class="sidebar" data-sidebar="right">
+			<div class="stack">
+				<div>
+					<div class="input-group">
+						<label>
+							Private IP
+							<input x-model="private_ip" type="text" name="private_ip" placeholder="192.168.0.0.100" />
+						</label>
+						<button x-on:click="detectPrivateIp()">Detect Private IP</button>
+					</div>
+					<label class="">
+						<input x-model="should_detect_private_ip" type="checkbox" name="should_detect_private_ip" />
+						Detect Private IP automatically
+					</label>
+				</div>
+
+
+				<div>
+					<p>
+						Note:
+					</p>
+					<ul style="margin-block: 0;">
+						<li>Tested on Chrome Browser.</li>
+						<li>To be able to detect the Private IP, this site needs access to your microphone.</li>
+						<li>The Private IP will be automatically refreshed when the network is changed.</li>
+						<li>URL will be saved in the history automatically.</li>
+						<li>Ensure you can access the server on the Local Lan Network by checking settings of the
+							firewall, the
+							network and the server.</li>
+					</ul>
+				</div>
+			</div>
+
+			<figure class="stack stack-2xs">
+				<!-- 275x275, 281x281 -->
+				<img x-bind:src='qr_url' alt="Image alt text" width="300" height="300" class="border-solid"
+					style="border-color: var(--border)" />
+				<figcaption x-text='updated_url'>
+					http://192.168.0.0.1
+				</figcaption>
+			</figure>
+		</div>
+
+		<div class="stack">
+			<div>
+				<h2>History</h2>
+				<hr>
+				<label>
+					<input x-model="should_replace_hostname" type="checkbox" name="should_replace_hostname2" />
+					Replace hostname with Private IP
+				</label>
+			</div>
+			<div class="grid">
+				<template x-for="item in url_logs">
+					<figure class="stack stack-2xs">
+						<!-- 275x275, 281x281 -->
+						<img x-bind:src='item.qr_url' alt="Image alt text" width="300" height="300" class="border-solid"
+							style="border-color: var(--border)" />
+						<figcaption x-text='item.updated_url'>
+							http://192.168.0.0.1
+						</figcaption>
+					</figure>
+				</template>
+			</div>
+		</div>
+	</main>
+
+	<footer class="">
+		<p>
+			This site was created by <a href="https://darongmean.com/" target="_blank">Darong Mean</a>.
+			<br>
+			<a href="https://github.com/darongmean/qrcode" target="_blank">Source code for this site</a>
+		</p>
+	</footer>
+
+</body>
+
+
 </html>

@@ -1,0 +1,60 @@
+/* STACK
+More info: https://every-layout.dev/layouts/stack/
+*/
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack:only-child {
+    /* ↓ `height` in horizontal-tb writing mode */
+    block-size: 100%;
+}
+
+.stack>* {
+    margin-block: 0;
+}
+
+.stack>*+* {
+    margin-block-start: var(--stack-space, var(--grid-gutter, 1.5rem));
+}
+
+.stack-3xs {
+    --stack-space: var(--space-3xs, 1.5rem);
+}
+
+.stack-2xs {
+    --stack-space: var(--space-2xs, 1.5rem);
+}
+
+
+.stack-xs {
+    --stack-space: var(--space-xs, 1.5rem);
+}
+
+.stack-m {
+    --stack-space: var(--space-m, 1.5rem);
+}
+
+.stack-l {
+    --stack-space: var(--space-l, 1.5rem);
+}
+
+/* exception */
+
+.except-stack-s,
+.except-stack-s+* {
+    --stack-space: var(--space-s, 1.5rem);
+}
+
+/* todo: support split after */
+
+.stack-recursive * {
+    margin-block: 0;
+}
+
+.stack-recursive *+* {
+    margin-block-start: var(--stack-space, var(--grid-gutter, 1.5rem));
+}

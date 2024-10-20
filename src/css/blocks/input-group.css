@@ -1,0 +1,19 @@
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--input-group-gap, var(--space-2xs-xs));
+}
+
+.input-group>button {
+    flex-grow: 1;
+    flex-basis: var(--input-button-min-width, 15ch);
+    white-space: nowrap;
+}
+
+.input-group>label,
+.input-group>input {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--input-group-min-width, 15rem);
+}

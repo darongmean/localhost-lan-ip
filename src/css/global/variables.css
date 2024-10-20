@@ -1,0 +1,14 @@
+:root {
+    --transition-base: 250ms ease;
+    --transition-movement: 200ms linear;
+    --transition-fade: 300ms ease;
+    --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+
+    --wrapper-max-width: var(--grid-max-width);
+    --gutter: var(--grid-gutter);
+    --flow-space: var(--grid-gutter);
+
+    --p-max-width: 75ch;
+    --h1-max-width: 15ch;
+    --h2-max-width: 30ch;
+}

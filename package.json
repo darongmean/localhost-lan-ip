@@ -4,13 +4,18 @@
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --ip 0.0.0.0",
     "start": "wrangler dev",
-    "test": "vitest"
+    "watch-simple": "tailwindcss -i ./src/css/simple-custom.css -o ./public/assets/css/simple-custom.css --watch",
+    "build-simple": "tailwindcss -i ./src/css/simple-custom.css -o ./public/assets/css/simple-custom.css --minify",
+    "watch-global": "tailwindcss -i ./src/css/global.css -o ./public/assets/css/global.css --watch",
+    "build-global": "tailwindcss -i ./src/css/global.css -o ./public/assets/css/global.css --minify"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.5.2",
-    "wrangler": "^3.60.3",
-    "vitest": "2.0.5"
+    "tailwindcss": "^3.4.13",
+    "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "simpledotcss": "^2.3.2"
   }
 }

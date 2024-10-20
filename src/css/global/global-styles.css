@@ -1,0 +1,49 @@
+/* 
+  Global styles 
+
+  Low-specificity, global styles that apply to the whole 
+  project: https://cube.fyi/css.html
+*/
+
+p,
+li {
+    max-width: var(--p-max-width);
+}
+
+h1 {
+    max-width: var(--h1-max-width);
+}
+
+h2,
+h3 {
+    max-width: var(--h2-max-width);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+}
+
+label:has(input[type='checkbox']) {
+    flex-direction: row;
+    align-items: center;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    max-width: 35ch;
+    text-align: left;
+    /* .break-all */
+    word-break: break-all;
+    /* .line-clamp-3 */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
