@@ -6,19 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<meta name="description"
-		content="Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP">
-	<title>Private IP & URL</title>
+		content="Convert localhost URLs to QR codes and replace hostname with Internal IP, Private IP or Local Lan IP">
+	<title>Internal URL | Convert localhost URLs to Internal URLs</title>
 	<script type="application/ld+json">
 	  {
 	    "@context": "https://schema.org",
 	    "@type": "WebPage",
-	    "name": "Private IP & URL",
-	    "description": "Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP"
+	    "name": "Internal URL",
+	    "description": "Convert localhost URLs to QR codes and replace hostname with Internal IP, Private IP or Local Lan IP"
 	  }
 	</script>
-	<meta property="og:title" content="Private IP & URL">
+	<meta property="og:title" content="Internal URL">
 	<meta property="og:description"
-		content="Convert localhost URLs to QR codes and replace hostname with Private IP or Local Lan IP">
+		content="Convert localhost URLs to QR codes and replace hostname with Internal IP, Private IP or Local Lan IP">
 
 	<script defer src="https://cloud.umami.is/script.js"
 		data-website-id="576f20f5-db5e-4d09-b51a-22fea7126378"></script>
@@ -38,7 +38,7 @@
 
 <body>
 	<header class="border-b-0">
-		<h1>Private IP & URL</h1>
+		<h1>Internal URL</h1>
 	</header>
 
 	<main class="stack" x-data="thing">
@@ -49,7 +49,7 @@
 			</label>
 			<label>
 				<input x-model="should_replace_hostname" type="checkbox" name="should_replace_hostname" />
-				Replace hostname with Private IP
+				Replace hostname with Internal IP
 			</label>
 		</div>
 
@@ -58,14 +58,14 @@
 				<div>
 					<div class="input-group">
 						<label>
-							Private IP
+							Internal IP
 							<input x-model="private_ip" type="text" name="private_ip" placeholder="192.168.0.0.100" />
 						</label>
-						<button x-on:click="detectPrivateIp()">Detect Private IP</button>
+						<button x-on:click="detectPrivateIp()">Detect Internal IP</button>
 					</div>
 					<label class="">
 						<input x-model="should_detect_private_ip" type="checkbox" name="should_detect_private_ip" />
-						Detect Private IP automatically
+						Detect Internal IP automatically
 					</label>
 				</div>
 
@@ -76,8 +76,8 @@
 					</p>
 					<ul style="margin-block: 0;">
 						<li>Tested on Chrome Browser.</li>
-						<li>To be able to detect the Private IP, this site needs access to your microphone.</li>
-						<li>The Private IP will be automatically refreshed when the network is changed.</li>
+						<li>To be able to detect the Internal IP, this site needs access to your microphone.</li>
+						<li>The Internal IP will be automatically refreshed when the network is changed.</li>
 						<li>URL will be saved in the history automatically.</li>
 						<li>Ensure you can access the server on the Local Lan Network by checking settings of the
 							firewall, the
@@ -102,7 +102,7 @@
 				<hr>
 				<label>
 					<input x-model="should_replace_hostname" type="checkbox" name="should_replace_hostname2" />
-					Replace hostname with Private IP
+					Replace hostname with Internal IP
 				</label>
 			</div>
 			<div class="grid">
